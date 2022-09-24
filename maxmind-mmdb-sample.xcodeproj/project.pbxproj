@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E92A94B528DF21D100DF44C9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A94B428DF21D100DF44C9 /* main.swift */; };
+		E92A94BD28DF22B100DF44C9 /* MMDB in Frameworks */ = {isa = PBXBuildFile; productRef = E92A94BC28DF22B100DF44C9 /* MMDB */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E92A94BD28DF22B100DF44C9 /* MMDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +80,9 @@
 			dependencies = (
 			);
 			name = "maxmind-mmdb-sample";
+			packageProductDependencies = (
+				E92A94BC28DF22B100DF44C9 /* MMDB */,
+			);
 			productName = "maxmind-mmdb-sample";
 			productReference = E92A94B128DF21D100DF44C9 /* maxmind-mmdb-sample */;
 			productType = "com.apple.product-type.tool";
@@ -106,6 +111,9 @@
 				Base,
 			);
 			mainGroup = E92A94A828DF21D100DF44C9;
+			packageReferences = (
+				E92A94BB28DF22B100DF44C9 /* XCRemoteSwiftPackageReference "swift-mmdb" */,
+			);
 			productRefGroup = E92A94B228DF21D100DF44C9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -280,6 +288,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E92A94BB28DF22B100DF44C9 /* XCRemoteSwiftPackageReference "swift-mmdb" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jimstudt/swift-mmdb";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E92A94BC28DF22B100DF44C9 /* MMDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E92A94BB28DF22B100DF44C9 /* XCRemoteSwiftPackageReference "swift-mmdb" */;
+			productName = MMDB;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E92A94A928DF21D100DF44C9 /* Project object */;
 }
