@@ -9,13 +9,15 @@ import Foundation
 import MMDB
 
 let testIP = "YOURIP"
-let pathToMMDBFile = "YOURPATH/GeoLite2-Country.mmdb"
+let basePath = "YOUR PATH TO MMDB FILES"
 
-let mmdbFileUrl = URL(fileURLWithPath: pathToMMDBFile)
-if let geolite = GeoLite2CountryDatabase(from: mmdbFileUrl) {
-	print(geolite.countryCode(address: testIP) ?? "not found")
+let countryFileUrl = URL(fileURLWithPath: basePath + "GeoLite2-Country.mmdb")
+if let countrydb = GeoLite2CountryDatabase(from: countryFileUrl) {
+	// Convenience method to get country ISO code:
+	print(countrydb.countryCode(address: testIP) ?? "not found")
 
-	switch geolite.search(address: testIP) {
+	// Fetch country and details from record
+	switch countrydb.search(address: testIP) {
 	case .notFound:
 		print("Data file not found.")
 	case .partial(_):
@@ -27,7 +29,7 @@ if let geolite = GeoLite2CountryDatabase(from: mmdbFileUrl) {
 		   case let .map(country_names) = country["names"],
 		   case let .string(country_name) = country_names["en"]
 		{
-			print("country_isocode=\(country_isocode) country_name=\(country_name)")
+			print("\(country_name) / \(country_isocode)")
 		}
 	case .failed(_):
 		print("Search failed.")
